@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { LanguageSelector } from "@/components/language-selector"
 import { Logo } from "@/components/logo"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { translations } from "@/lib/translations"
 import { LayoutDashboard, Users, FileText, Award, User, LogOut, Menu, X, Stethoscope } from "lucide-react"
 
-export function ProviderSidebar({ user }) {
-  const { lang, setLang, t } = useLanguage()
+export function ProviderSidebar({ user, lang, onLangChange }) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const t = translations[lang]
 
   const navigation = [
     { name: t.dashboard, href: "/provider/dashboard", icon: LayoutDashboard },
@@ -65,7 +65,7 @@ export function ProviderSidebar({ user }) {
             const isActive = pathname === item.href
             return (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
@@ -96,7 +96,7 @@ export function ProviderSidebar({ user }) {
                   ? `${user.profile.firstName} ${user.profile.lastName}`
                   : user?.email}
               </p>
-              <p className="text-xs text-muted-foreground truncate">{user?.profile?.specialization || t.provider}</p>
+              <p className="text-xs text-muted-foreground truncate">{user?.profile?.specialization || "Provider"}</p>
             </div>
           </div>
           <div className="flex gap-2">
@@ -104,7 +104,7 @@ export function ProviderSidebar({ user }) {
               <LogOut className="h-4 w-4" />
               {t.logout}
             </Button>
-            <LanguageSelector />
+            <LanguageSelector currentLang={lang} onLangChange={onLangChange} />
           </div>
         </div>
       </aside>
