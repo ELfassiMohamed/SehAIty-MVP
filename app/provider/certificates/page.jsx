@@ -107,7 +107,7 @@ export default function ProviderCertificates() {
   const fetchCertificates = async () => {
     try {
       const token = localStorage.getItem("token")
-      const response = await fetch(`${API_BASE_URL}/certificates`, {
+      const response = await fetch(`${API_BASE_URL}/certificates/all`, {
         headers: {
           "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json",

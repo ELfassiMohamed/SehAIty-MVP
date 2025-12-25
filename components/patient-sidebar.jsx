@@ -26,8 +26,16 @@ export function PatientSidebar({ user }) {
   ]
 
   const handleLogout = () => {
-    sessionStorage.removeItem("user")
-    router.push("/")
+     // Clear localStorage (where JWT and user data are stored)
+     localStorage.removeItem("token")
+     localStorage.removeItem("user")
+     
+     // Also clear sessionStorage just in case
+     sessionStorage.removeItem("user")
+     sessionStorage.removeItem("token")
+     
+     // Redirect to home page
+     router.push("/")
   }
 
   const getInitials = (firstName, lastName) => {
