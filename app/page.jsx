@@ -43,7 +43,7 @@ export default function LandingPage() {
       mvpNotice: "MVP - Under Active Development",
       // attribution: "Project Group - EMSI Tanger",
       github: "GitHub",
-      builtBy: "Built by",
+      builtBy: "Engineered · Developed by",
     },
     fr: {
       language: "Langue",
@@ -54,7 +54,7 @@ export default function LandingPage() {
       mvpNotice: "MVP - En Developpement Actif",
       // attribution: "Groupe de Projet - EMSI Tanger",
       github: "GitHub",
-      builtBy: "Concu par",
+      builtBy: "Conçu · Développé par",
     },
     ar: {
       language: "اللغة",
@@ -65,7 +65,7 @@ export default function LandingPage() {
       mvpNotice: "MVP - المنصة قيد التطوير النشط",
       // attribution: "مجموعة مشروع - EMSI Tanger",
       github: "GitHub",
-      builtBy: "صُنع بواسطة",
+      builtBy: "تم تصميمه و تطويره بواسطة",
     },
   }
 
